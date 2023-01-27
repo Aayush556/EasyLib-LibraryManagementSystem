@@ -10,48 +10,54 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
  </head>
- <!-- <style>
-    body {
-       background-image: url('images/library.jpg')
-    }
 
-
-    .login-form-3 .btnSubmit {
-       font-weight: 600;
-       color: #0062cc;
-       background-color: #fff;
-    }
-
-    .login-form-3 h3 {
-       text-align: center;
-       color: #fff;
-    }
-
-    .login-form-1 h3 {
-       text-align: center;
-       color: #fff;
-    }
-
-    .login-form-3 {
-       padding: 5%;
-       box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-    }
- </style> -->
 
  <body>
+    <?php
+      $emailmsg = "";
+      $pasdmsg = "";
+      $msg = "";
+
+      $admin_email_msg = "";
+      $admin_password_msg = "";
+
+
+      if (!empty($_REQUEST['admin_email_msg'])) {
+         $admin_email_msg = $_REQUEST['admin_email_msg'];
+      }
+
+      if (!empty($_REQUEST['admin_password_msg'])) {
+         $admin_password_msg = $_REQUEST['admin_password_msg'];
+      }
+
+      if (!empty($_REQUEST['emailmsg'])) {
+         $emailmsg = $_REQUEST['emailmsg'];
+      }
+
+      if (!empty($_REQUEST['pasdmsg'])) {
+         $pasdmsg = $_REQUEST['pasdmsg'];
+      }
+
+      if (!empty($_REQUEST['msg'])) {
+         $msg = $_REQUEST['msg'];
+      }
+
+      ?>
 
     <div class="container login-container">
        <div class="row">
           <div class="col-md-6 login-form-1">
-             <h3>Login Form 1</h3>
+             <h3>User Login</h3>
              <form action="login_server_page.php" method="get">>
 
                 <div class="form-group">
-                   <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                   <input type="text" class="form-control" name="login_email" placeholder="Your Email *" value="" />
                 </div>
+
                 <div class="form-group">
-                   <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                   <input type="password" class="form-control" name="login_password" placeholder="Your Password *" value="" />
                 </div>
+
                 <div class="form-group">
                    <input type="submit" class="btnSubmit" value="Login" />
                 </div>
@@ -64,15 +70,17 @@
              <div class="login-logo">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
              </div>
-             <h3>Login Form 2</h3>
-             <form action="login_server_page.php" method="get">>
+             <h3>Admin Login</h3>
+             <form action="login_admin_server_page.php" method="get">>
 
                 <div class="form-group">
-                   <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                   <input type="text" class="form-control" name="login_email" placeholder="Your Email *" value="" />
                 </div>
+                <Label style="color:Black">*<?php echo $admin_email_msg ?></label>
                 <div class="form-group">
-                   <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                   <input type="password" class="form-control" name="login_password" placeholder="Your Password *" value="" />
                 </div>
+                <Label style="color:Black">*<?php echo $admin_password_msg ?></label>
                 <div class="form-group">
                    <input type="submit" class="btnSubmit" value="Login" />
                 </div>
@@ -83,6 +91,7 @@
           </div>
        </div>
     </div>
+    <script src="" async defer></script>
  </body>
 
  </html>
